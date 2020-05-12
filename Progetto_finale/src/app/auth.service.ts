@@ -8,13 +8,13 @@ import { HttpClient } from '@angular/common/http';
 })
 
 
-export class AuthService {
+export class AuthService { // Esporto la classe AuthService -->  Parametri da passare per fare il login
   token : string = "";
   requestAuthUrl = 'https://accounts.spotify.com/authorize';
   authConfig: AuthConfig = {
-    client_id: "349c705ef41345f78a72bea003ef086d",  // WebPortal App Id. Shoud be config
-    response_type: "token",
-    redirect_uri: "http://localhost:4200/authorized",  // My URL
+    client_id: "6df42a10ea4a4cfdab9bf107bd7e3fa4",  // WebPortal App Id --> ID personale
+    response_type: "token", // In risposta ci da un toker
+    redirect_uri: "https://4200-f945fed6-e3bd-4ccc-9f41-2edc9c2606b1.ws-eu01.gitpod.io/authorized",  // URL per effettuare la richiesta
     state: "",
     show_dialog: true,
     scope: new ScopesBuilder().withScopes(ScopesBuilder.LIBRARY).build()
@@ -22,7 +22,7 @@ export class AuthService {
 
   constructor(private http : HttpClient) { }
 
-  public authorize()
+  public authorize() // Creazione metodo authorize
   {
     const url = this.buildAuthUrl();
     console.log("url:" + url);
@@ -48,11 +48,12 @@ export class AuthService {
 
   isTokenSet () : Boolean
   {
-    if (this.token.includes("Bearer")) return true;
-    else return false;
+    if (this.token.includes("Bearer")) return true; // se é autoirzzato restitusice true
+    else return false; // Restituisce false se non é autorizzato
   }
 
   //Questa parte la prendiamo così dalla libreria
+  // Non ho capito questoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
   private buildAuthUrl(): string{
 
     let params = [];
@@ -66,6 +67,6 @@ export class AuthService {
 
     return `${this.requestAuthUrl}?${params.join('&')}`;
   }
-
+   // fino a quiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
  
 }
