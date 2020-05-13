@@ -8,7 +8,7 @@ import { ArtistComponent } from './artist/artist.component';
 import { LoginComponent } from './login/login.component';
 import {AutorizzazioneComponent} from './autorizzazione/autorizzazione.component';
 import { LogoutComponent } from './logout/logout.component';
-
+import { AuthGuardService as AuthGuard } from './auth-guard.service';
 const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'search', component: SearchComponent },
@@ -18,7 +18,8 @@ const routes: Routes = [
   { path: 'artists/:id', component: ArtistComponent },
   { path: 'login', component : LoginComponent},
   { path: 'authorized', component : AutorizzazioneComponent},
-  { path: 'logout', component : LogoutComponent}
+  { path: 'logout', component : LogoutComponent},
+  {path: '/search',component: SearchComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

@@ -10,18 +10,16 @@ import { Router } from '@angular/router';
 export class LogoutComponent implements OnInit {
   isAuthorized : Boolean; // Creazione variabile É Autorizzato per le verifiche , --> false true
   constructor(private auth : AuthService, private router: Router) { }
-
+  
   ngOnInit(): void {
     this.logout();
-    this.isAuthorized = this.auth.isTokenSet();
-    if (this.isAuthorized == false){console.log("non sei loggato");}
-    else { console.log("sei loggato");}   
+    this.isAuthorized = this.auth.isTokenSet(); 
     
     }
 
   logout()
   {
     this.auth.unsetToken();  // TOLGO IL TOKEN 
-    this.isAuthorized = false; // VARIABILE É AUTORIZZATO MESSA IN FALSE
+    this.isAuthorized = false; // VARIABILE É AUTORIZZATO MESSA IN FALSE 
   }
 }
