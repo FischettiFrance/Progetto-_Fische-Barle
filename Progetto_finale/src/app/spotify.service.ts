@@ -14,6 +14,7 @@ export class SpotifyService {
 
   searchTrack(query: string) {
     const url = `https://api.spotify.com/v1/search?q=${query}&type=track`;
+    console.log("spotify service " + this.auth.getToken())
     const headers = new HttpHeaders({Authorization: this.auth.getToken()});
     let obsTracks = this.http.get(url, { headers });
     return obsTracks;

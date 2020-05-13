@@ -9,6 +9,8 @@ import { TrackComponent } from './track/track.component';
 import { AboutComponent } from './about/about.component';
 import { SearchComponent } from './search/search.component';
 import { LoginComponent } from './login/login.component';
+import { AutorizzazioneComponent } from './autorizzazione/autorizzazione.component';
+import { LogoutComponent } from './logout/logout.component';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { LoginComponent } from './login/login.component';
     TrackComponent,
     AboutComponent,
     SearchComponent,
-    LoginComponent
+    LoginComponent,
+    AutorizzazioneComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

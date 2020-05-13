@@ -6,7 +6,8 @@ import { TrackComponent } from './track/track.component';
 import { AlbumComponent } from './album/album.component';
 import { ArtistComponent } from './artist/artist.component';
 import { LoginComponent } from './login/login.component';
-
+import {AutorizzazioneComponent} from './autorizzazione/autorizzazione.component';
+import { LogoutComponent } from './logout/logout.component';
 
 const routes: Routes = [
   { path: 'about', component: AboutComponent },
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'albums/:id', component: AlbumComponent },
   { path: 'artists/:id', component: ArtistComponent },
   { path: 'login', component : LoginComponent},
-  { path: 'authorized', component : LoginComponent}
+  { path: 'authorized', component : AutorizzazioneComponent},
+  { path: 'logout', component : LogoutComponent}
 ];
 
 @NgModule({
