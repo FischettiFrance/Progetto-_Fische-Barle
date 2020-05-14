@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { AuthConfig } from './models/authConfig.model';
 import { ScopesBuilder } from './models/spotifyScope.model'
 import { HttpClient } from '@angular/common/http';
-import { JwtHelperService } from '@auth0/angular-jwt';
+import { JwtHelperService,JwtModule } from '@auth0/angular-jwt';
+
 @Injectable({
     providedIn: 'root'
 })
@@ -21,7 +22,7 @@ export class AuthService { // Esporto la classe AuthService -->  Parametri da pa
     };
 
     constructor(private http: HttpClient,public jwtHelper: JwtHelperService) { }
-
+    
     public authorize() // Creazione metodo authorize
     {
         const url = this.buildAuthUrl();
@@ -46,11 +47,19 @@ export class AuthService { // Esporto la classe AuthService -->  Parametri da pa
         return this.token;
 
     }
+    //Prova con router GUARD   
+    public isAuthenticated(): boolean {
+    const token = localStorage.getItem('token');
+    // Check whether the token is expired and return
+    // true or false
+    return !this.jwtHelper.isTokenExpired(token);
+    }
+
 
     isTokenSet(): Boolean {
         if (this.token.includes("Bearer")) return true; // se é autoirzzato restitusice true
-        else return !this.jwtHelper.isTokenExpired(this.token); // Restituisce false se non é autorizzato
-                                                                //Prova con router GUARD    
+        else return false // Restituisce false se non é autorizzato
+                                                                 
     }
 
     //Questa parte la prendiamo così dalla libreria

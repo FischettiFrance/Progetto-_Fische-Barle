@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import {AutorizzazioneComponent} from './autorizzazione/autorizzazione.component';
 import { LogoutComponent } from './logout/logout.component';
 import { AuthGuardService as AuthGuard } from './auth-guard.service';
+import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
 const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'search', component: SearchComponent },
@@ -16,14 +17,15 @@ const routes: Routes = [
   { path: '',   redirectTo: '/search', pathMatch: 'full' },
   { path: 'albums/:id', component: AlbumComponent },
   { path: 'artists/:id', component: ArtistComponent },
-  { path: 'login', component : LoginComponent},
+  { path: 'login', component : LoginComponent, canActivate: [AuthGuard]},
   { path: 'authorized', component : AutorizzazioneComponent},
   { path: 'logout', component : LogoutComponent},
-  {path: '/search',component: SearchComponent, canActivate: [AuthGuard]}
+  
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [{ provide: JWT_OPTIONS, useValue: JWT_OPTIONS },JwtHelperService]
 })
 export class AppRoutingModule { }
