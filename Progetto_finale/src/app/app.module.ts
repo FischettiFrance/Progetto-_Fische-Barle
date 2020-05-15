@@ -11,6 +11,7 @@ import { SearchComponent } from './search/search.component';
 import { LoginComponent } from './login/login.component';
 import { AutorizzazioneComponent } from './autorizzazione/autorizzazione.component';
 import { LogoutComponent } from './logout/logout.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap'
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { LogoutComponent } from './logout/logout.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
