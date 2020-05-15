@@ -15,7 +15,7 @@ export class AuthService { // Esporto la classe AuthService -->  Parametri da pa
     authConfig: AuthConfig = {
         client_id: "6df42a10ea4a4cfdab9bf107bd7e3fa4",  // WebPortal App Id --> ID personale
         response_type: "token", // In risposta ci da un toker
-        redirect_uri: "https://4200-f945fed6-e3bd-4ccc-9f41-2edc9c2606b1.ws-eu01.gitpod.io/authorized",  // URL per effettuare la richiesta
+        redirect_uri: "https://4200-d0dd5402-61c9-4c6c-abb7-ff4d607ccddc.ws-eu01.gitpod.io/authorized",  // URL per effettuare la richiesta
         state: "",
         show_dialog: true,
         scope: new ScopesBuilder().withScopes(ScopesBuilder.LIBRARY).build()
@@ -48,13 +48,13 @@ export class AuthService { // Esporto la classe AuthService -->  Parametri da pa
 
     }
     //Prova con router GUARD   
-    public isAuthenticated(): boolean {
+   /* public isAuthenticated(): boolean {
     const token = localStorage.getItem('token');
     // Check whether the token is expired and return
     // true or false
     return !this.jwtHelper.isTokenExpired(token);
     }
-
+    */
 
     isTokenSet(): Boolean {
         if (this.token.includes("Bearer")) return true; // se é autoirzzato restitusice true
@@ -63,7 +63,7 @@ export class AuthService { // Esporto la classe AuthService -->  Parametri da pa
     }
 
     //Questa parte la prendiamo così dalla libreria
-    // Non ho capito questoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+
     private buildAuthUrl(): string {
 
         let params = [];
@@ -77,6 +77,5 @@ export class AuthService { // Esporto la classe AuthService -->  Parametri da pa
 
         return `${this.requestAuthUrl}?${params.join('&')}`;
     }
-    // fino a quiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
 
 }

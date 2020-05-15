@@ -12,12 +12,12 @@ import { AuthGuardService as AuthGuard } from './auth-guard.service';
 import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
 const routes: Routes = [
   { path: 'about', component: AboutComponent },
-  { path: 'search', component: SearchComponent },
+  { path: 'search', component: SearchComponent, canActivate: [AuthGuard]},
   { path: 'tracks/:id', component: TrackComponent },
-  { path: '',   redirectTo: '/search', pathMatch: 'full' },
+  { path: '',   redirectTo: '/search', pathMatch: 'full'},
   { path: 'albums/:id', component: AlbumComponent },
   { path: 'artists/:id', component: ArtistComponent },
-  { path: 'login', component : LoginComponent, canActivate: [AuthGuard]},
+  { path: 'login', component : LoginComponent},
   { path: 'authorized', component : AutorizzazioneComponent},
   { path: 'logout', component : LogoutComponent},
   
