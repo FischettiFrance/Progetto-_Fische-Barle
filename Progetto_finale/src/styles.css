@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+body, html {
+  height: 100%;
+}
+.bg {
+  background-image: url("assets/img/astronaut.gif");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  margin-top: -2%;
+}
