@@ -13,9 +13,9 @@ export class AuthService { // Esporto la classe AuthService -->  Parametri da pa
     token: string = "";
     requestAuthUrl = 'https://accounts.spotify.com/authorize';
     authConfig: AuthConfig = {
-        client_id: "6df42a10ea4a4cfdab9bf107bd7e3fa4",  // WebPortal App Id --> ID personale
+        client_id: "f2e39a765a4e4b2c83cef0eace1ab668",  // WebPortal App Id --> ID personale
         response_type: "token", // In risposta ci da un toker
-        redirect_uri: "https://4200-d0dd5402-61c9-4c6c-abb7-ff4d607ccddc.ws-eu01.gitpod.io/authorized",  // URL per effettuare la richiesta
+        redirect_uri: "https://4200-c12b9512-402d-4842-9650-963d6295f34a.ws-eu01.gitpod.io/authorized",  // URL per effettuare la richiesta
         state: "",
         show_dialog: true,
         scope: new ScopesBuilder().withScopes(ScopesBuilder.LIBRARY).build()
